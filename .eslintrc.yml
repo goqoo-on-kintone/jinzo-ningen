@@ -1,0 +1,32 @@
+env:
+  browser: true
+extends:
+  - standard
+  - plugin:import/errors
+  - prettier
+  - prettier/standard
+globals:
+  kintone: true
+parserOptions:
+  ecmaVersion: 2018
+rules:
+  # console.log を残さない console.warn/error はOK
+  no-console:
+    - error
+    - allow:
+        - warn
+        - error
+  # デバッガ有効 # TODO: エディタではautofixせず、コミットはNGにしたいが可能だろうか？
+  no-debugger: off
+  # 全角スペースはエラー（テンプレート文字列では認める）
+  no-irregular-whitespace:
+    - error
+    - skipTemplates: true
+  # 戻り値を受け取らないnew()は認める
+  no-new: off
+  # varで変数宣言は禁止
+  no-var: error
+  # 原則letよりconstを使う
+  prefer-const: error
+  # importだけでなくrequireの無効パスもエラー
+  node/no-missing-require: error
