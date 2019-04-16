@@ -10,12 +10,6 @@ globals:
 parserOptions:
   ecmaVersion: 2018
 rules:
-  # console.log を残さない console.warn/error はOK
-  no-console:
-    - error
-    - allow:
-        - warn
-        - error
   # デバッガ有効 # TODO: エディタではautofixせず、コミットはNGにしたいが可能だろうか？
   no-debugger: off
   # 全角スペースはエラー（テンプレート文字列では認める）
