@@ -43,13 +43,6 @@
           "size": {
             "width": "255"
           }
-        },
-        {
-          "type": "MULTI_SELECT",
-          "code": "複数選択",
-          "size": {
-            "width": "197"
-          }
         }
       ]
     },
@@ -57,12 +50,24 @@
       "type": "ROW",
       "fields": [
         {
+          "type": "MULTI_SELECT",
+          "code": "複数選択",
+          "size": {
+            "width": "197"
+          }
+        },
+        {
           "type": "DROP_DOWN",
           "code": "ドロップダウン",
           "size": {
             "width": "196"
           }
-        },
+        }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
         {
           "type": "DATE",
           "code": "日付",
