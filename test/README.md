@@ -4,15 +4,15 @@
 
 ## テストアプリの作成
 
-任意の kintone 環境にアプリを新規作成して、アプリ ID をメモしておきます。
+任意の kintone 環境にアプリをふたつのアプリ（それぞれを仮にメインアプリ、サブアプリとします。）を新規作成して、それぞれのアプリ ID をメモしておきます。なお、アプリの名称は任意です。
 
 ## .ginuerc ファイルの作成
 
 `.ginuerc.sample.yml` を `.ginuerc.yml` としてコピー、以下のとおり編集します。
 
-- `location`、`env`、`development` は変更しないでください。
-- `your_domain`、`your_username`、`your_password` に任意の kintone 環境の情報を入力します。
-- `your_app_id` に上記で新規作成したアプリ ID を入力します。
+- `location` `env` `development` は変更しないでください。
+- `your_domain` `your_username` `your_password` に任意の kintone 環境の情報を入力します。
+- `your_main_app_id` `your_sub_app_id` に上記で作成したメインアプリ、サブアプリの ID を入力します。
 
 ```
 location: kintone-settings
@@ -22,7 +22,39 @@ env:
     username: your_username
     password: your_password
     app:
-      jinzo-ningen-test: your_app_id
+      jinzo-ningen-test: your_main_app_id
+      jinzo-ningen-test-sub: your_sub_app_id
+```
+
+## JSON ファイルの修正
+
+`test/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` に上記で作成したサブアプリのID を入力します。
+
+```
+"ルックアップ": {
+  "type": "SINGLE_LINE_TEXT",
+  "code": "ルックアップ",
+  "label": "ルックアップ",
+  "noLabel": false,
+  "required": false,
+  "lookup": {
+    "relatedApp": {
+      "app": "your_sub_app_id", 
+      "code": ""
+    },
+```
+
+`test/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` に上記で作成したサブアプリのID を入力します。
+
+```
+{
+  "type": "SINGLE_LINE_TEXT",
+  "label": "ルックアップ",
+  "noLabel": "false",
+  "code": "ルックアップ",
+  "required": "false",
+  "relatedApp": "your_sub_app_id"
+},
 ```
 
 ## ginue によるテストアプリの設定
@@ -33,7 +65,9 @@ env:
 
 ```
 cd test
-npx ginue push
+npx ginue push development -A jinzo-ningen-test-sub
+npx ginue deploy
+npx ginue push development -A jinzo-ningen-test
 npx ginue deploy
 ```
 

@@ -114,6 +114,29 @@
       "unique": "false",
       "defaultValue": null,
       "defaultExpression": "NOW"
+    },
+    {
+      "type": "SINGLE_LINE_TEXT",
+      "label": "ルックアップ",
+      "noLabel": "false",
+      "code": "ルックアップ",
+      "required": "false",
+      "relatedApp": "171"
+    },
+    {
+      "type": "NUMBER",
+      "label": "ルックアップ数値",
+      "noLabel": "false",
+      "code": "数値_0",
+      "required": "false",
+      "minValue": null,
+      "maxValue": null,
+      "digit": "false",
+      "unique": "false",
+      "defaultValue": null,
+      "displayScale": null,
+      "unit": null,
+      "unitPosition": "BEFORE"
     }
   ]
 }

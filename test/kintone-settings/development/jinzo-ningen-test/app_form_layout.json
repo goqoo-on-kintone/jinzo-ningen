@@ -90,6 +90,25 @@
           }
         }
       ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "SINGLE_LINE_TEXT",
+          "code": "ルックアップ",
+          "size": {
+            "width": "246"
+          }
+        },
+        {
+          "type": "NUMBER",
+          "code": "数値_0",
+          "size": {
+            "width": "193"
+          }
+        }
+      ]
     }
   ]
 }

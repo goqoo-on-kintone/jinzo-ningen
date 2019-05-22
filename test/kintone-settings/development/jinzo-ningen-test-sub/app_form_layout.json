@@ -1,0 +1,23 @@
+{
+  "layout": [
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "SINGLE_LINE_TEXT",
+          "code": "文字列__1行_",
+          "size": {
+            "width": "193"
+          }
+        },
+        {
+          "type": "NUMBER",
+          "code": "数値_0",
+          "size": {
+            "width": "193"
+          }
+        }
+      ]
+    }
+  ]
+}

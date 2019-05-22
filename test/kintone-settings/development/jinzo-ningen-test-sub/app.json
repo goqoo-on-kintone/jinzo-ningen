@@ -1,14 +1,14 @@
 {
-  "appId": "162",
+  "appId": "163",
   "code": "",
-  "name": "jinzo-ningen-test",
+  "name": "jinzo-ningen-test-sub",
   "description": "",
-  "createdAt": "2019-05-21T01:12:32.000Z",
+  "createdAt": "2019-05-22T02:01:03.000Z",
   "creator": {
     "code": "latica.jp@gmail.com",
     "name": "吉越　勲"
   },
-  "modifiedAt": "2019-05-22T22:14:05.000Z",
+  "modifiedAt": "2019-05-22T02:10:44.000Z",
   "modifier": {
     "code": "latica.jp@gmail.com",
     "name": "吉越　勲"

@@ -1,0 +1,32 @@
+{
+  "properties": [
+    {
+      "type": "SINGLE_LINE_TEXT",
+      "label": "文字列 (1行)",
+      "noLabel": "false",
+      "code": "文字列__1行_",
+      "required": "false",
+      "minLength": null,
+      "maxLength": null,
+      "expression": "",
+      "hideExpression": "false",
+      "unique": "false",
+      "defaultValue": ""
+    },
+    {
+      "type": "NUMBER",
+      "label": "数値",
+      "noLabel": "false",
+      "code": "数値_0",
+      "required": "false",
+      "minValue": null,
+      "maxValue": null,
+      "digit": "false",
+      "unique": "false",
+      "defaultValue": null,
+      "displayScale": null,
+      "unit": null,
+      "unitPosition": "BEFORE"
+    }
+  ]
+}
