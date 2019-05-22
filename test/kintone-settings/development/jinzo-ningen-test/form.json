@@ -1,0 +1,119 @@
+{
+  "properties": [
+    {
+      "type": "SINGLE_LINE_TEXT",
+      "label": "文字列 (1行)",
+      "noLabel": "false",
+      "code": "文字列__1行_",
+      "required": "false",
+      "minLength": null,
+      "maxLength": null,
+      "expression": "",
+      "hideExpression": "false",
+      "unique": "false",
+      "defaultValue": ""
+    },
+    {
+      "type": "MULTI_LINE_TEXT",
+      "label": "文字列 (複数行)",
+      "noLabel": "false",
+      "code": "文字列__複数行_",
+      "required": "false",
+      "defaultValue": ""
+    },
+    {
+      "type": "NUMBER",
+      "label": "数値",
+      "noLabel": "false",
+      "code": "数値",
+      "required": "false",
+      "minValue": null,
+      "maxValue": null,
+      "digit": "false",
+      "unique": "false",
+      "defaultValue": null,
+      "displayScale": null,
+      "unit": null,
+      "unitPosition": "BEFORE"
+    },
+    {
+      "type": "RADIO_BUTTON",
+      "label": "ラジオボタン",
+      "noLabel": "false",
+      "code": "ラジオボタン",
+      "required": "true",
+      "options": [
+        "sample1",
+        "sample2"
+      ],
+      "defaultValue": "sample1"
+    },
+    {
+      "type": "CHECK_BOX",
+      "label": "チェックボックス",
+      "noLabel": "false",
+      "code": "チェックボックス",
+      "required": "false",
+      "options": [
+        "sample1",
+        "sample2"
+      ],
+      "defaultValue": []
+    },
+    {
+      "type": "MULTI_SELECT",
+      "label": "複数選択",
+      "noLabel": "false",
+      "code": "複数選択",
+      "required": "false",
+      "options": [
+        "sample1",
+        "sample2",
+        "sample3",
+        "sample4"
+      ],
+      "defaultValue": []
+    },
+    {
+      "type": "DROP_DOWN",
+      "label": "ドロップダウン",
+      "noLabel": "false",
+      "code": "ドロップダウン",
+      "required": "false",
+      "options": [
+        "sample1",
+        "sample2"
+      ],
+      "defaultValue": null
+    },
+    {
+      "type": "DATE",
+      "label": "日付",
+      "noLabel": "false",
+      "code": "日付",
+      "required": "false",
+      "unique": "false",
+      "defaultValue": null,
+      "defaultExpression": "NOW"
+    },
+    {
+      "type": "TIME",
+      "label": "時刻",
+      "noLabel": "false",
+      "code": "時刻",
+      "required": "false",
+      "defaultValue": null,
+      "defaultExpression": "NOW"
+    },
+    {
+      "type": "DATETIME",
+      "label": "日時",
+      "noLabel": "false",
+      "code": "日時",
+      "required": "false",
+      "unique": "false",
+      "defaultValue": null,
+      "defaultExpression": "NOW"
+    }
+  ]
+}

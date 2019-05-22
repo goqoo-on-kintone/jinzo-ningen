@@ -1,0 +1,8 @@
+location: kintone-settings
+env:
+  development:
+    domain: your_domain.cybozu.com
+    username: your_username
+    password: your_password
+    app:
+      jinzo-ningen-test: your_app_id

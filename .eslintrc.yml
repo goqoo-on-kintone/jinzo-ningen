@@ -1,17 +1,30 @@
 env:
   browser: true
+  jest: true
 extends:
   - standard
   - plugin:import/errors
   - prettier
   - prettier/standard
+plugins:
+  - prettier
 globals:
+  cybozu: true
   kintone: true
+  browser: true
+  page: true
 parserOptions:
   ecmaVersion: 2018
 rules:
   # デバッガ有効 # TODO: エディタではautofixせず、コミットはNGにしたいが可能だろうか？
   no-debugger: off
+  # console.log を残さない console.warn/error はOK
+  no-console:
+    - error
+    - allow:
+        - info
+        - warn
+        - error
   # 全角スペースはエラー（テンプレート文字列では認める）
   no-irregular-whitespace:
     - error
@@ -24,3 +37,5 @@ rules:
   prefer-const: error
   # importだけでなくrequireの無効パスもエラー
   node/no-missing-require: error
+  prettier/prettier:
+      - error

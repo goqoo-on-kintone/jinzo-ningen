@@ -1,0 +1,90 @@
+{
+  "layout": [
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "SINGLE_LINE_TEXT",
+          "code": "文字列__1行_",
+          "size": {
+            "width": "193"
+          }
+        },
+        {
+          "type": "MULTI_LINE_TEXT",
+          "code": "文字列__複数行_",
+          "size": {
+            "width": "315",
+            "innerHeight": "125"
+          }
+        },
+        {
+          "type": "NUMBER",
+          "code": "数値",
+          "size": {
+            "width": "193"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "RADIO_BUTTON",
+          "code": "ラジオボタン",
+          "size": {
+            "width": "255"
+          }
+        },
+        {
+          "type": "CHECK_BOX",
+          "code": "チェックボックス",
+          "size": {
+            "width": "255"
+          }
+        },
+        {
+          "type": "MULTI_SELECT",
+          "code": "複数選択",
+          "size": {
+            "width": "197"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "DROP_DOWN",
+          "code": "ドロップダウン",
+          "size": {
+            "width": "196"
+          }
+        },
+        {
+          "type": "DATE",
+          "code": "日付",
+          "size": {
+            "width": "117"
+          }
+        },
+        {
+          "type": "TIME",
+          "code": "時刻",
+          "size": {
+            "width": "101"
+          }
+        },
+        {
+          "type": "DATETIME",
+          "code": "日時",
+          "size": {
+            "width": "196"
+          }
+        }
+      ]
+    }
+  ]
+}

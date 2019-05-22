@@ -23,13 +23,13 @@ const puppeteer = require('puppeteer')
 const { upload, deleteAll } = require('jinzo-ningen')
 
 const browser = await puppeteer.launch()
-await upload({ domain: 'xxxx.cybozu.com', appId: 0 }, 'test/csv/xxxx.csv')
-await deleteAll({ domain: 'xxxx.cybozu.com', appId: 0 })
+await upload(browser, { domain: 'xxxx.cybozu.com', appId: 0 }, 'test/csv/xxxx.csv')
+await deleteAll(browser, { domain: 'xxxx.cybozu.com', appId: 0 })
 ```
 
 if using guest space
 
 ```js
-await upload({ domain: 'xxxx.cybozu.com', appId: 0, guestId: 0 }, 'test/csv/xxxx.csv')
-await deleteAll({ domain: 'xxxx.cybozu.com', appId: 0, guestId: 0 })
+await upload(browser, { domain: 'xxxx.cybozu.com', appId: 0, guestId: 0 }, 'test/csv/xxxx.csv')
+await deleteAll(browser, { domain: 'xxxx.cybozu.com', appId: 0, guestId: 0 })
 ```
