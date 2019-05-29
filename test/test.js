@@ -39,6 +39,8 @@ const {
   isDetailGroupOpened,
   openDetailGroup,
   pressSaveAndWaitForDetailScreen,
+  pressDetailConfirmStatus,
+  getDetailStatusText,
 } = require('../lib/page-utils')
 const { generateRandomStr } = require('./utils.js')
 
@@ -131,7 +133,8 @@ describe('jinzo-ningen-test', () => {
         detailDate,
         detailTime,
         detailDateTime,
-        detailGroupOpened
+        detailGroupOpened,
+        detailStatusText
       beforeAll(async () => {
         await pressSaveAndWaitForDetailScreen(page)
 
@@ -147,6 +150,8 @@ describe('jinzo-ningen-test', () => {
         detailDateTime = await getDetailDateTime(page, '日時')
         await openDetailGroup(page, 'グループ')
         detailGroupOpened = await isDetailGroupOpened(page, 'グループ')
+        await pressDetailConfirmStatus(page)
+        detailStatusText = await getDetailStatusText(page)
       })
       it('テキスト、数値が正常に保存できたこと', () => {
         expect([detailNumber, detailText1, detailText2]).toEqual([number, text1, text2])
@@ -164,6 +169,9 @@ describe('jinzo-ningen-test', () => {
       })
       it('グループが正常に開けたこと', () => {
         expect(detailGroupOpened).toBeTruthy()
+      })
+      it('ステータスが次に進められたこと', () => {
+        expect(detailStatusText).toEqual('処理中')
       })
     })
   })

@@ -5,7 +5,7 @@
       "label": "文字列 (1行)",
       "noLabel": "false",
       "code": "文字列__1行_",
-      "required": "true",
+      "required": "false",
       "minLength": null,
       "maxLength": null,
       "expression": "",
