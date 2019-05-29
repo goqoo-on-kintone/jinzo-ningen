@@ -5,7 +5,7 @@
       "label": "文字列 (1行)",
       "noLabel": "false",
       "code": "文字列__1行_",
-      "required": "false",
+      "required": "true",
       "minLength": null,
       "maxLength": null,
       "expression": "",
@@ -121,7 +121,7 @@
       "noLabel": "false",
       "code": "ルックアップ",
       "required": "false",
-      "relatedApp": "171"
+      "relatedApp": "163"
     },
     {
       "type": "NUMBER",

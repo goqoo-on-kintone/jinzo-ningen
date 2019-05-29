@@ -14,6 +14,7 @@ const {
   setDate,
   setTime,
   setDateTime,
+  openGroup,
   getSingleLineText,
   getMultiLineText,
   getNumber,
@@ -24,6 +25,7 @@ const {
   isRadioButtonSelected,
   isMultiSelectSelected,
   isDropdownSelected,
+  isGroupOpened,
   getDetailSingleLineText,
   getDetailMultiLineText,
   getDetailNumber,
@@ -34,6 +36,8 @@ const {
   getDetailDate,
   getDetailTime,
   getDetailDateTime,
+  isDetailGroupOpened,
+  openDetailGroup,
   pressSaveAndWaitForDetailScreen,
 } = require('../lib/page-utils')
 const { generateRandomStr } = require('./utils.js')
@@ -68,7 +72,8 @@ describe('jinzo-ningen-test', () => {
         editDropdownSelected,
         editDate,
         editTime,
-        editDateTime
+        editDateTime,
+        editGroupOpened
       beforeAll(async () => {
         await gotoCreatePage(page, domain, app['jinzo-ningen-test'])
 
@@ -82,6 +87,7 @@ describe('jinzo-ningen-test', () => {
         await setDate(page, '日付', date1)
         await setTime(page, '時刻', date2)
         await setDateTime(page, '日時', date2)
+        await openGroup(page, 'グループ')
         editText1 = await getSingleLineText(page, '文字列 (1行)')
         editText2 = await getMultiLineText(page, '文字列 (複数行)')
         editNumber = await getNumber(page, '数値')
@@ -92,6 +98,7 @@ describe('jinzo-ningen-test', () => {
         editDate = await getDate(page, '日付')
         editTime = await getTime(page, '時刻', date2)
         editDateTime = await getDateTime(page, '日時')
+        editGroupOpened = await isGroupOpened(page, 'グループ')
       })
 
       it('テキスト、数値が正常に入力できたこと', () => {
@@ -108,6 +115,9 @@ describe('jinzo-ningen-test', () => {
       it('日時が正常に入力できたこと', () => {
         expect([editDate, editTime, editDateTime]).toEqual([date1, date2, date2])
       })
+      it('グループが正常に開けたこと', () => {
+        expect(editGroupOpened).toBeTruthy()
+      })
     })
 
     describe('保存と詳細画面の表示', () => {
@@ -120,7 +130,8 @@ describe('jinzo-ningen-test', () => {
         detailDropdownText,
         detailDate,
         detailTime,
-        detailDateTime
+        detailDateTime,
+        detailGroupOpened
       beforeAll(async () => {
         await pressSaveAndWaitForDetailScreen(page)
 
@@ -134,6 +145,8 @@ describe('jinzo-ningen-test', () => {
         detailDate = await getDetailDate(page, '日付')
         detailTime = await getDetailTime(page, '時刻', date2)
         detailDateTime = await getDetailDateTime(page, '日時')
+        await openDetailGroup(page, 'グループ')
+        detailGroupOpened = await isDetailGroupOpened(page, 'グループ')
       })
       it('テキスト、数値が正常に保存できたこと', () => {
         expect([detailNumber, detailText1, detailText2]).toEqual([number, text1, text2])
@@ -148,6 +161,9 @@ describe('jinzo-ningen-test', () => {
       })
       it('日時が正常に保存できたこと', () => {
         expect([detailDate, detailTime, detailDateTime]).toEqual([date1, date2, date2])
+      })
+      it('グループが正常に開けたこと', () => {
+        expect(detailGroupOpened).toBeTruthy()
       })
     })
   })

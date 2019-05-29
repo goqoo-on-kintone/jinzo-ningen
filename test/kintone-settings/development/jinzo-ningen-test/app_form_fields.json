@@ -29,7 +29,7 @@
       "code": "文字列__1行_",
       "label": "文字列 (1行)",
       "noLabel": false,
-      "required": false,
+      "required": true,
       "minLength": "",
       "maxLength": "",
       "expression": "",
@@ -61,6 +61,13 @@
       },
       "defaultValue": "sample1",
       "align": "HORIZONTAL"
+    },
+    "グループ": {
+      "type": "GROUP",
+      "code": "グループ",
+      "label": "グループ",
+      "noLabel": false,
+      "openGroup": false
     },
     "ドロップダウン": {
       "type": "DROP_DOWN",
@@ -202,7 +209,7 @@
       "required": false,
       "lookup": {
         "relatedApp": {
-          "app": "171",
+          "app": "163",
           "code": ""
         },
         "relatedKeyField": "文字列__1行_",
