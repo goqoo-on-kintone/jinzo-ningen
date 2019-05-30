@@ -79,8 +79,8 @@ describe('jinzo-ningen-test', () => {
       beforeAll(async () => {
         await gotoCreatePage(page, domain, app['jinzo-ningen-test'])
 
-        await setSingleLineText(page, '文字列 (1行)', text1)
-        await setMultiLineText(page, '文字列 (複数行)', text2)
+        await setSingleLineText(page, '文字列__1行_', text1)
+        await setMultiLineText(page, '文字列__複数行_', text2)
         await setNumber(page, '数値', number)
         await selectRadioButton(page, 'ラジオボタン', 'sample2')
         await checkCheckBox(page, 'チェックボックス', { sample1: true, sample2: true })
@@ -90,8 +90,8 @@ describe('jinzo-ningen-test', () => {
         await setTime(page, '時刻', date2)
         await setDateTime(page, '日時', date2)
         await openGroup(page, 'グループ')
-        editText1 = await getSingleLineText(page, '文字列 (1行)')
-        editText2 = await getMultiLineText(page, '文字列 (複数行)')
+        editText1 = await getSingleLineText(page, '文字列__1行_')
+        editText2 = await getMultiLineText(page, '文字列__複数行_')
         editNumber = await getNumber(page, '数値')
         editRadioButtonSelected = await isRadioButtonSelected(page, 'ラジオボタン', 'sample2')
         editCheckboxChecked = await isCheckBoxChecked(page, 'チェックボックス', ['sample1', 'sample2'])
@@ -138,8 +138,8 @@ describe('jinzo-ningen-test', () => {
       beforeAll(async () => {
         await pressSaveAndWaitForDetailScreen(page)
 
-        detailText1 = await getDetailSingleLineText(page, '文字列 (1行)')
-        detailText2 = await getDetailMultiLineText(page, '文字列 (複数行)')
+        detailText1 = await getDetailSingleLineText(page, '文字列__1行_')
+        detailText2 = await getDetailMultiLineText(page, '文字列__複数行_')
         detailNumber = await getDetailNumber(page, '数値')
         detailRadioButtonText = await getDetailRadioButtonText(page, 'ラジオボタン')
         detailCheckBoxTexts = await getDetailCheckBoxTexts(page, 'チェックボックス')
