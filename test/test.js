@@ -39,6 +39,7 @@ const {
   isDetailGroupOpened,
   openDetailGroup,
   pressSaveAndWaitForDetailScreen,
+  pressEditAndWaitForEditScreen,
   pressDetailConfirmStatus,
   getDetailStatusText,
 } = require('../lib/page-utils')
@@ -64,7 +65,7 @@ describe('jinzo-ningen-test', () => {
     const date1 = parseLocalDateString('2000/01/01')
     const date2 = parseLocalDateString('2000/01/01 12:34:00')
 
-    describe('編集画面での操作', () => {
+    describe('新規作成画面での入力操作', () => {
       let editText1,
         editText2,
         editNumber,
@@ -172,6 +173,18 @@ describe('jinzo-ningen-test', () => {
       })
       it('ステータスが次に進められたこと', () => {
         expect(detailStatusText).toEqual('処理中')
+      })
+    })
+    describe('編集画面での入力操作と保存', () => {
+      let editText2
+      beforeAll(async () => {
+        await pressEditAndWaitForEditScreen(page)
+        await setMultiLineText(page, '文字列__複数行_', text2)
+        editText2 = await getMultiLineText(page, '文字列__複数行_')
+        await pressSaveAndWaitForDetailScreen(page)
+      })
+      it('テキストが正常に入力できたこと', () => {
+        expect(editText2).toEqual(text2)
       })
     })
   })
