@@ -209,7 +209,7 @@
       "required": false,
       "lookup": {
         "relatedApp": {
-          "app": "163",
+          "app": "your_sub_app_id",
           "code": ""
         },
         "relatedKeyField": "文字列__1行_",

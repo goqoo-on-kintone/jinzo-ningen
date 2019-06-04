@@ -28,7 +28,7 @@ env:
 
 ## JSON ファイルの修正
 
-`test/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` に上記で作成したサブアプリのID を入力します。
+`test/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` を上記で作成したサブアプリの ID に置き換えます。
 
 ```
 "ルックアップ": {
@@ -42,19 +42,6 @@ env:
       "app": "your_sub_app_id", 
       "code": ""
     },
-```
-
-`test/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` に上記で作成したサブアプリのID を入力します。
-
-```
-{
-  "type": "SINGLE_LINE_TEXT",
-  "label": "ルックアップ",
-  "noLabel": "false",
-  "code": "ルックアップ",
-  "required": "false",
-  "relatedApp": "your_sub_app_id"
-},
 ```
 
 ## ginue によるテストアプリの設定
