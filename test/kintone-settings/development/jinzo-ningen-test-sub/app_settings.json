@@ -1,0 +1,9 @@
+{
+  "name": "jinzo-ningen-test-sub",
+  "description": "",
+  "icon": {
+    "type": "PRESET",
+    "key": "APP39"
+  },
+  "theme": "WHITE"
+}

@@ -1,0 +1,244 @@
+{
+  "properties": {
+    "レコード番号": {
+      "type": "RECORD_NUMBER",
+      "code": "レコード番号",
+      "label": "レコード番号",
+      "noLabel": false
+    },
+    "作業者": {
+      "type": "STATUS_ASSIGNEE",
+      "code": "作業者",
+      "label": "作業者",
+      "enabled": true
+    },
+    "更新者": {
+      "type": "MODIFIER",
+      "code": "更新者",
+      "label": "更新者",
+      "noLabel": false
+    },
+    "作成者": {
+      "type": "CREATOR",
+      "code": "作成者",
+      "label": "作成者",
+      "noLabel": false
+    },
+    "文字列__1行_": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "文字列__1行_",
+      "label": "文字列 (1行)",
+      "noLabel": false,
+      "required": false,
+      "minLength": "",
+      "maxLength": "",
+      "expression": "",
+      "hideExpression": false,
+      "unique": false,
+      "defaultValue": ""
+    },
+    "ステータス": {
+      "type": "STATUS",
+      "code": "ステータス",
+      "label": "ステータス",
+      "enabled": true
+    },
+    "ラジオボタン": {
+      "type": "RADIO_BUTTON",
+      "code": "ラジオボタン",
+      "label": "ラジオボタン",
+      "noLabel": false,
+      "required": true,
+      "options": {
+        "sample1": {
+          "label": "sample1",
+          "index": "0"
+        },
+        "sample2": {
+          "label": "sample2",
+          "index": "1"
+        }
+      },
+      "defaultValue": "sample1",
+      "align": "HORIZONTAL"
+    },
+    "グループ": {
+      "type": "GROUP",
+      "code": "グループ",
+      "label": "グループ",
+      "noLabel": false,
+      "openGroup": false
+    },
+    "ドロップダウン": {
+      "type": "DROP_DOWN",
+      "code": "ドロップダウン",
+      "label": "ドロップダウン",
+      "noLabel": false,
+      "required": false,
+      "options": {
+        "sample1": {
+          "label": "sample1",
+          "index": "0"
+        },
+        "sample2": {
+          "label": "sample2",
+          "index": "1"
+        }
+      },
+      "defaultValue": ""
+    },
+    "数値_0": {
+      "type": "NUMBER",
+      "code": "数値_0",
+      "label": "ルックアップ数値",
+      "noLabel": false,
+      "required": false,
+      "minValue": "",
+      "maxValue": "",
+      "digit": false,
+      "unique": false,
+      "defaultValue": "",
+      "displayScale": "",
+      "unit": "",
+      "unitPosition": "BEFORE"
+    },
+    "更新日時": {
+      "type": "UPDATED_TIME",
+      "code": "更新日時",
+      "label": "更新日時",
+      "noLabel": false
+    },
+    "カテゴリー": {
+      "type": "CATEGORY",
+      "code": "カテゴリー",
+      "label": "カテゴリー",
+      "enabled": false
+    },
+    "日時": {
+      "type": "DATETIME",
+      "code": "日時",
+      "label": "日時",
+      "noLabel": false,
+      "required": false,
+      "unique": false,
+      "defaultValue": "",
+      "defaultNowValue": true
+    },
+    "時刻": {
+      "type": "TIME",
+      "code": "時刻",
+      "label": "時刻",
+      "noLabel": false,
+      "required": false,
+      "defaultValue": "",
+      "defaultNowValue": true
+    },
+    "チェックボックス": {
+      "type": "CHECK_BOX",
+      "code": "チェックボックス",
+      "label": "チェックボックス",
+      "noLabel": false,
+      "required": false,
+      "options": {
+        "sample1": {
+          "label": "sample1",
+          "index": "0"
+        },
+        "sample2": {
+          "label": "sample2",
+          "index": "1"
+        }
+      },
+      "defaultValue": [],
+      "align": "HORIZONTAL"
+    },
+    "文字列__複数行_": {
+      "type": "MULTI_LINE_TEXT",
+      "code": "文字列__複数行_",
+      "label": "文字列 (複数行)",
+      "noLabel": false,
+      "required": false,
+      "defaultValue": ""
+    },
+    "複数選択": {
+      "type": "MULTI_SELECT",
+      "code": "複数選択",
+      "label": "複数選択",
+      "noLabel": false,
+      "required": false,
+      "options": {
+        "sample1": {
+          "label": "sample1",
+          "index": "0"
+        },
+        "sample4": {
+          "label": "sample4",
+          "index": "3"
+        },
+        "sample3": {
+          "label": "sample3",
+          "index": "2"
+        },
+        "sample2": {
+          "label": "sample2",
+          "index": "1"
+        }
+      },
+      "defaultValue": []
+    },
+    "数値": {
+      "type": "NUMBER",
+      "code": "数値",
+      "label": "数値",
+      "noLabel": false,
+      "required": false,
+      "minValue": "",
+      "maxValue": "",
+      "digit": false,
+      "unique": false,
+      "defaultValue": "",
+      "displayScale": "",
+      "unit": "",
+      "unitPosition": "BEFORE"
+    },
+    "ルックアップ": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "ルックアップ",
+      "label": "ルックアップ",
+      "noLabel": false,
+      "required": false,
+      "lookup": {
+        "relatedApp": {
+          "app": "your_sub_app_id",
+          "code": ""
+        },
+        "relatedKeyField": "文字列__1行_",
+        "fieldMappings": [
+          {
+            "field": "数値_0",
+            "relatedField": "数値_0"
+          }
+        ],
+        "lookupPickerFields": [],
+        "filterCond": "",
+        "sort": "レコード番号 desc"
+      }
+    },
+    "作成日時": {
+      "type": "CREATED_TIME",
+      "code": "作成日時",
+      "label": "作成日時",
+      "noLabel": false
+    },
+    "日付": {
+      "type": "DATE",
+      "code": "日付",
+      "label": "日付",
+      "noLabel": false,
+      "required": false,
+      "unique": false,
+      "defaultValue": "",
+      "defaultNowValue": true
+    }
+  }
+}
