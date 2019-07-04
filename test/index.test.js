@@ -21,7 +21,7 @@ describe('jinzo-ningen-test', () => {
   describe('入力と保存、表示', () => {
     describe('新規作成画面への遷移と入力操作', () => {
       beforeAll(async () => {
-        await lib.gotoCreatePage(page, domain, app['jinzo-ningen-test'])
+        await lib.gotoCreatePage(page, domain, app['jinzo-ningen-test'], { params: { key1: 12345, key2: 'キー2' } })
       })
 
       describe('テキスト、数値が正常に入力できたこと', () => {
@@ -41,6 +41,15 @@ describe('jinzo-ningen-test', () => {
           await lib.setNumber(page, '数値', number)
           const editNumber = await lib.getNumber(page, '数値')
           expect(editNumber).toEqual(number)
+        })
+      })
+
+      describe('遷移の際にパラメータを含むURLが正常に指定されたこと', () => {
+        it('作成ページのURL', async () => {
+          const url = await page.evaluate(() => document.location.href)
+          expect(url).toEqual(
+            `https://${domain}/k/${app['jinzo-ningen-test']}/edit?key1=12345&key2=%E3%82%AD%E3%83%BC2`
+          )
         })
       })
 
@@ -207,6 +216,49 @@ describe('jinzo-ningen-test', () => {
         await lib.setMultiLineText(page, '文字列__複数行_', text2)
         const editText2 = await lib.getMultiLineText(page, '文字列__複数行_')
         expect(editText2).toEqual(text2)
+      })
+    })
+
+    describe('URL作成', () => {
+      describe('作成ページのURLが正常に作成されたこと', () => {
+        it('パラメータなし', () => {
+          const url = lib.getCreateUrl(domain, app['jinzo-ningen-test'])
+          expect(url).toEqual(`https://${domain}/k/${app['jinzo-ningen-test']}/edit`)
+        })
+
+        it('パラメータつき', () => {
+          const url = lib.getCreateUrl(domain, app['jinzo-ningen-test'], { params: { key1: 12345, key2: 'キー2' } })
+          expect(url).toEqual(
+            `https://${domain}/k/${app['jinzo-ningen-test']}/edit?key1=12345&key2=%E3%82%AD%E3%83%BC2`
+          )
+        })
+      })
+
+      describe('一覧ページのURLが正常に作成されたこと', () => {
+        it('一覧ID、パラメータなし', () => {
+          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'])
+          expect(url).toEqual(`https://${domain}/k/${app['jinzo-ningen-test']}/`)
+        })
+
+        it('一覧ID指定', () => {
+          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], { view: 20 })
+          expect(url).toEqual(`https://${domain}/k/${app['jinzo-ningen-test']}/?view=20`)
+        })
+
+        it('パラメータ指定', () => {
+          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], { params: { key1: 12345, key2: 'キー2' } })
+          expect(url).toEqual(`https://${domain}/k/${app['jinzo-ningen-test']}/?key1=12345&key2=%E3%82%AD%E3%83%BC2`)
+        })
+
+        it('一覧ID、パラメータ指定', () => {
+          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], {
+            view: 20,
+            params: { key1: 12345, key2: 'キー2' },
+          })
+          expect(url).toEqual(
+            `https://${domain}/k/${app['jinzo-ningen-test']}/?view=20&key1=12345&key2=%E3%82%AD%E3%83%BC2`
+          )
+        })
       })
     })
   })
