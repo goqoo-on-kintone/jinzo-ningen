@@ -322,44 +322,44 @@ kintone にログインします。
 - `date` `<Date>` 日時
 - returns: `<Promise>` 入力が成功した場合に resolve されます。
 
-#### selectRadioButton(page, fieldCode, option)
+#### selectRadioButton(page, fieldCode, item)
 
-指定したフィールドコードのラジオボタンフィールドでオプションを選択します。
+指定したフィールドコードのラジオボタンフィールドで項目を選択します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- `option` `<string>` オプション
+- `item` `<string>` 項目
 - returns: `<Promise>` 入力が成功した場合に resolve されます。
 
-#### selectDropdown(page, fieldCode, option)
+#### selectDropdown(page, fieldCode, item)
 
-指定したフィールドコードのドロップダウンフィールドでオプションを選択します。
+指定したフィールドコードのドロップダウンフィールドで項目を選択します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- `option` `<string>` オプション
+- `item` `<string>` 項目
 - returns: `<Promise>` 入力が成功した場合に resolve されます。
 
-#### checkCheckbox(page, fieldCode, optionCheckMap)
+#### checkCheckbox(page, fieldCode, itemCheckMap)
 
-指定したフィールドコードのチェックボックスについて、オプションをチェックまたはチェックを外します。
+指定したフィールドコードのチェックボックスについて、項目をチェックまたはチェックを外します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- `optionCheckMap` `<Object>` オプションとチェックの可否をセットしたオブジェクト
-  - 例：`{ オプション1: true, オプション2: false }` チェックボックスのオプション1はチェック、オプション2はチェック解除された状態にセットされます。
-  - `optionCheckMap` に含まれないオプションについては、状態を変更しません。
+- `itemCheckMap` `<Object>` 項目とチェックの可否をセットしたオブジェクト
+  - 例：`{ 項目1: true, 項目2: false }` チェックボックスの項目1はチェック、項目2はチェック解除された状態にセットされます。
+  - `itemCheckMap` に含まれない項目については、状態を変更しません。
 - returns: `<Promise>` 入力が成功した場合に resolve されます。
 
-#### selectMultiSelect(page, fieldCode, optionSelectMap)
+#### selectMultiSelect(page, fieldCode, itemSelectMap)
 
-指定したフィールドコードの複数選択について、オプションを選択または選択解除します。
+指定したフィールドコードの複数選択について、項目を選択または選択解除します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- `optionCheckMap` `<Object>` オプションとチェックの可否をセットしたオブジェクト
-  - `{ オプション1: true, オプション2: false }` 複数選択のオプション1は選択、オプション2は選択解除された状態にセットされます。
-  - `optionCheckMap` に含まれないオプションについては、状態を変更しません。
+- `itemSelectMap` `<Object>` 項目とチェックの可否をセットしたオブジェクト
+  - `{ 項目1: true, 項目2: false }` 複数選択の項目1は選択、項目2は選択解除された状態にセットされます。
+  - `itemSelectMap` に含まれない項目については、状態を変更しません。
 - returns: `<Promise>` 入力が成功した場合に resolve されます。
 
 ### グループの操作（新規作成、編集画面）
@@ -430,41 +430,41 @@ kintone にログインします。
 - `fieldCode` `<string>` フィールドコード
 - returns: `<Promise<Date>>` フィールド値を Date オブジェクトで返します。
 
-#### isRadioButtonSelected(page, fieldCode, option)
+#### isRadioButtonSelected(page, fieldCode, item)
 
-指定したフィールドコードのラジオボタンのオプションが選択されているかどうかを取得します。
-
-- `page` `<Page>` Chromium の Page オブジェクト 
-- `fieldCode` `<string>` フィールドコード
-- `option` `<string>` オプション
-- returns: `<Promise<boolean>>` 指定したオプションが選択されているかどうかを返します。
-
-#### isCheckBoxChecked(page, fieldCode, options)
-
-指定したフィールドコードのチェックボックスのオプションがチェックされているかどうかを取得します。
+指定したフィールドコードのラジオボタンの項目が選択されているかどうかを取得します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- `option` `<string>` オプション
-- returns: `<Promise<Array<boolean>>>` 指定したオプションが選択されているかどうかを boolean の配列で返します。
+- `item` `<string>` 項目
+- returns: `<Promise<boolean>>` 指定した項目が選択されているかどうかを返します。
 
-#### isDropdownSelected(page, fieldCode, option)
+#### isCheckBoxChecked(page, fieldCode, items)
 
-指定したフィールドコードのドロップダウンのオプションが選択されているかどうかを取得します。
-
-- `page` `<Page>` Chromium の Page オブジェクト 
-- `fieldCode` `<string>` フィールドコード
-- `option` `<string>` オプション
-- returns: `<Promise<boolean>>` 指定したオプションが選択されているかどうかを返します。
-
-#### isMultiSelectSelected(page, fieldCode, options)
-
-指定したフィールドコードの複数選択のオプションが選択されているかどうかを取得します。
+指定したフィールドコードのチェックボックスの項目がチェックされているかどうかを取得します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- `option` `<string>` オプション
-- returns: `<Promise<Array<boolean>>>` 指定したオプションが選択されているかどうかを返します。
+- `items` `<Array<string>>` 項目
+- returns: `<Promise<Array<boolean>>>` 指定した項目が選択されているかどうかを boolean の配列で返します。
+
+#### isDropdownSelected(page, fieldCode, item)
+
+指定したフィールドコードのドロップダウンの項目が選択されているかどうかを取得します。
+
+- `page` `<Page>` Chromium の Page オブジェクト 
+- `fieldCode` `<string>` フィールドコード
+- `item` `<string>` 項目
+- returns: `<Promise<boolean>>` 指定した項目が選択されているかどうかを返します。
+
+#### isMultiSelectSelected(page, fieldCode, items)
+
+指定したフィールドコードの複数選択の項目が選択されているかどうかを取得します。
+
+- `page` `<Page>` Chromium の Page オブジェクト 
+- `fieldCode` `<string>` フィールドコード
+- `items` `<Array<string>>` 項目
+- returns: `<Promise<Array<boolean>>>` 指定した項目が選択されているかどうかを返します。
 
 #### isGroupOpened(page, fieldCode) 
 
@@ -544,7 +544,7 @@ kintone にログインします。
 
 #### getDetailRadioButtonText(page, fieldCode)
 
-指定したフィールドコードのラジオボタンについて、詳細画面で表示される選択済みオプションのテキストを取得します。
+指定したフィールドコードのラジオボタンについて、詳細画面で表示される選択済み項目のテキストを取得します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
@@ -552,7 +552,7 @@ kintone にログインします。
 
 #### getDetailCheckBoxTexts(page, fieldCode)
 
-指定したフィールドコードのチェックボックスについて、詳細画面で表示される選択済みオプションのテキストを配列で取得します。
+指定したフィールドコードのチェックボックスについて、詳細画面で表示される選択済み項目のテキストを配列で取得します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
@@ -560,7 +560,7 @@ kintone にログインします。
 
 #### getDetailDropdownText(page, fieldCode)
 
-指定したフィールドコードのドロップダウンについて、詳細画面で表示される選択済みオプションのテキストを取得します。
+指定したフィールドコードのドロップダウンについて、詳細画面で表示される選択済み項目のテキストを取得します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
@@ -568,11 +568,11 @@ kintone にログインします。
 
 #### getDetailMultiSelectText(page, fieldCode)
 
-指定したフィールドコードのチェックボックスについて、詳細画面で表示される選択済みオプションのテキストを配列で取得します。
+指定したフィールドコードのチェックボックスについて、詳細画面で表示される選択済み項目のテキストを配列で取得します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `fieldCode` `<string>` フィールドコード
-- returns: `<Promise<Array<string>>>` 指定したオプションが選択されているかどうかを boolean の配列で返します。Detail
+- returns: `<Promise<Array<string>>>` 指定した項目が選択されているかどうかを boolean の配列で返します。Detail
 
 #### isDetailGroupOpened(page, fieldCode) 
 
