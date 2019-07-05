@@ -21,7 +21,9 @@ describe('jinzo-ningen-test', () => {
   describe('入力と保存、表示', () => {
     describe('新規作成画面への遷移と入力操作', () => {
       beforeAll(async () => {
-        await lib.gotoCreatePage(page, domain, app['jinzo-ningen-test'], { params: { key1: 12345, key2: 'キー2' } })
+        await lib.gotoCreatePage(page, domain, app['jinzo-ningen-test'], {
+          queryParams: { key1: 12345, key2: 'キー2' },
+        })
       })
 
       describe('テキスト、数値が正常に入力できたこと', () => {
@@ -227,7 +229,9 @@ describe('jinzo-ningen-test', () => {
         })
 
         it('パラメータつき', () => {
-          const url = lib.getCreateUrl(domain, app['jinzo-ningen-test'], { params: { key1: 12345, key2: 'キー2' } })
+          const url = lib.getCreateUrl(domain, app['jinzo-ningen-test'], {
+            queryParams: { key1: 12345, key2: 'キー2' },
+          })
           expect(url).toEqual(
             `https://${domain}/k/${app['jinzo-ningen-test']}/edit?key1=12345&key2=%E3%82%AD%E3%83%BC2`
           )
@@ -241,19 +245,18 @@ describe('jinzo-ningen-test', () => {
         })
 
         it('一覧ID指定', () => {
-          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], { view: 20 })
+          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], { queryParams: { view: 20 } })
           expect(url).toEqual(`https://${domain}/k/${app['jinzo-ningen-test']}/?view=20`)
         })
 
         it('パラメータ指定', () => {
-          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], { params: { key1: 12345, key2: 'キー2' } })
+          const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], { queryParams: { key1: 12345, key2: 'キー2' } })
           expect(url).toEqual(`https://${domain}/k/${app['jinzo-ningen-test']}/?key1=12345&key2=%E3%82%AD%E3%83%BC2`)
         })
 
         it('一覧ID、パラメータ指定', () => {
           const url = lib.getIndexUrl(domain, app['jinzo-ningen-test'], {
-            view: 20,
-            params: { key1: 12345, key2: 'キー2' },
+            queryParams: { view: 20, key1: 12345, key2: 'キー2' },
           })
           expect(url).toEqual(
             `https://${domain}/k/${app['jinzo-ningen-test']}/?view=20&key1=12345&key2=%E3%82%AD%E3%83%BC2`
