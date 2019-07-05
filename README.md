@@ -219,9 +219,13 @@ kintone にログインします。
 - `domain` `<string>` kintone ドメイン
 - `appId` `<number>` アプリID
 - `options` `<Object>` オプション
-  - `view` `<number>` 一覧ID
-  - `params` `<Object>` パラメータ
+  - `queryParams` `<Object>` クエリパラメータ
 - returns: `<Promise>` 表示が成功した場合に resolve されます。
+
+```js
+// 指定したドメイン・アプリID の一覧ページに遷移して「すべて」一覧を表示
+gotoIndexPage(page, <domain>, <appId>, { queryParams: { view: 20 } });
+```
 
 #### gotoCreatePage(page, domain, appId, options)
 
@@ -231,7 +235,7 @@ kintone にログインします。
 - `domain` `<string>` kintone ドメイン
 - `appId` `<number>` アプリID
 - `options` `<Object>` オプション
-  - `params` `<Object>` パラメータ
+  - `queryParams` `<Object>` クエリパラメータ
 - returns: `<Promise>` 表示が成功した場合に resolve されます。
 
 #### pressEditAndWaitForEditScreen(page)
