@@ -211,13 +211,31 @@ kintone にログインします。
 - `password` `<string>` kintone パスワード
 - returns: `<Promise>` ログインが成功した場合に resolve されます。
 
-#### gotoCreatePage(page, domain, appId)
+#### gotoIndexPage(page, domain, appId, options)
+
+指定したドメイン、アプリIDの一覧画面を表示します。
+
+- `page` `<Page>` Chromium の Page オブジェクト 
+- `domain` `<string>` kintone ドメイン
+- `appId` `<number>` アプリID
+- `options` `<Object>` オプション
+  - `queryParams` `<Object>` クエリパラメータ
+- returns: `<Promise>` 表示が成功した場合に resolve されます。
+
+```js
+// 指定したドメイン・アプリID の一覧ページに遷移して「すべて」一覧を表示
+gotoIndexPage(page, <domain>, <appId>, { queryParams: { view: 20 } });
+```
+
+#### gotoCreatePage(page, domain, appId, options)
 
 指定したドメイン、アプリIDの新規作成画面を表示します。
 
 - `page` `<Page>` Chromium の Page オブジェクト 
 - `domain` `<string>` kintone ドメイン
 - `appId` `<number>` アプリID
+- `options` `<Object>` オプション
+  - `queryParams` `<Object>` クエリパラメータ
 - returns: `<Promise>` 表示が成功した場合に resolve されます。
 
 #### pressEditAndWaitForEditScreen(page)
