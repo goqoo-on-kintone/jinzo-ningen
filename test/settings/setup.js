@@ -7,7 +7,7 @@ const path = require('path')
 const DIR = path.join(os.tmpdir(), 'jest_puppeteer_global_setup')
 
 module.exports = async function() {
-  console.log(chalk.green('Setup Puppeteer'))
+  console.info(chalk.green('Setup Puppeteer'))
   const browser = await puppeteer.launch({ headless: true })
   global.__BROWSER__ = browser
   mkdirp.sync(DIR)

@@ -8,12 +8,8 @@ const path = require('path')
 const DIR = path.join(os.tmpdir(), 'jest_puppeteer_global_setup')
 
 class PuppeteerEnvironment extends NodeEnvironment {
-  constructor(config) {
-    super(config)
-  }
-
   async setup() {
-    console.log(chalk.yellow('Setup Test Environment.'))
+    console.info(chalk.yellow('Setup Test Environment.'))
     await super.setup()
     const wsEndpoint = fs.readFileSync(path.join(DIR, 'wsEndpoint'), 'utf8')
     if (!wsEndpoint) {
@@ -25,7 +21,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async teardown() {
-    console.log(chalk.yellow('Teardown Test Environment.'))
+    console.info(chalk.yellow('Teardown Test Environment.'))
     await super.teardown()
   }
 
