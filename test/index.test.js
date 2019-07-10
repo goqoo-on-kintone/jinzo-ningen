@@ -7,6 +7,7 @@ process.on('unhandledRejection', console.dir)
 
 describe('jinzo-ningen-test', () => {
   beforeAll(async () => {
+    const page = await global.__BROWSER__.newPage()
     await page.setViewport({ width: 1920, height: 980 })
     lib.setConsole(page)
     await lib.login(page, { domain, username, password })
@@ -19,6 +20,11 @@ describe('jinzo-ningen-test', () => {
   const date2 = lib.parseLocalDateString('2000/01/01 12:34:00')
 
   describe('入力と保存、表示', () => {
+    let page
+    beforeAll(async () => {
+      page = await global.__BROWSER__.newPage()
+    })
+
     describe('新規作成画面への遷移と入力操作', () => {
       beforeAll(async () => {
         await lib.gotoCreatePage(page, domain, app['jinzo-ningen-test'], {
