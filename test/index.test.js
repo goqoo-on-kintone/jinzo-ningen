@@ -37,7 +37,7 @@ describe('jinzo-ningen-test', () => {
     })
 
     afterAll(async () => {
-      await lib.delete(global.__BROWSER__, { domain, app: appId })
+      await lib.delete(global.__BROWSER__, { domain, appId })
     })
 
     it('新規画面に遷移すること', async () => {
@@ -164,7 +164,7 @@ describe('jinzo-ningen-test', () => {
     })
 
     afterAll(async () => {
-      await lib.delete(global.__BROWSER__, { domain, app: appId })
+      await lib.delete(global.__BROWSER__, { domain, appId })
     })
 
     it('文字列（1行）が取得できること', async () => {
