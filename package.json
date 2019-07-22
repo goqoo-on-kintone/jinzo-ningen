@@ -2,9 +2,19 @@
   "name": "jinzo-ningen",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:TailsGarden/jinzo-ningen.git",
-  "author": "tailsgarden",
+  "repository": "git@github.com:goqoo-on-kintone/jinzo-ningen.git",
+  "author": "",
   "license": "MIT",
+  "keywords": [
+    "kintone"
+  ],
+  "homepage": "https://github.com/goqoo-on-kintone/jinzo-ningen",
+  "bugs": {
+    "url": "https://github.com/goqoo-on-kintone/jinzo-ningen/issues"
+  },
+  "engines": {
+    "node": ">=8.9"
+  },
   "scripts": {
     "test": "cross-env JEST_PUPPETEER_CONFIG=./test/jest-puppeteer.config.js jest --config ./test/jest.config.js"
   },
