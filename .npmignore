@@ -1,0 +1,9 @@
+test/
+docs/
+
+.gitignore
+.eslintrc.yml
+.prettierrc.yml
+
+*.log
+*.lock
