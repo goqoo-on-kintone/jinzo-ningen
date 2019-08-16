@@ -41,6 +41,16 @@ module.exports = {
 
 - jinzo-ningenは内部的にwaitを複数回呼び出している為、jestのTimeout(=5000ms)を超えることがあります。その場合`jest.setTimeout`でTimeoutを伸ばしましょう。
 
+- 以下の内容で`jest-puppeteer.config.js`を作成すると、headlessモードを解除してテストを実行することができます。
+
+```js
+module.exports = {
+  launch: {
+    headless: false,
+  },
+}
+```
+
 ## Licence
 
 MIT
