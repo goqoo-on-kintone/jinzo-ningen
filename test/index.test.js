@@ -20,10 +20,6 @@ describe('jinzo-ningen-test', () => {
 
   const appId = app['jinzo-ningen-test']
 
-  it('', () => {
-    expect(1).toBe(1)
-  })
-
   describe('画面遷移', () => {
     let recordId
 
