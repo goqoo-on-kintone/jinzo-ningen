@@ -41,7 +41,7 @@ module.exports = {
 
 - テストの内容によっては、実行時間が jest の タイムアウト時間（デフォルトは 5000 ms）を超えてしまうことがあります。その場合は、`jest.setTimeout()` でタイムアウト時間を延長することができます。
 
-- 以下の内容で`jest-puppeteer.config.js`を作成すると、headlessモードを解除してテストを実行することができます。
+- 以下の内容で `jest-puppeteer.config.js` を作成すると、headless モードを解除して（= Chromium を表示して）テストを実行することができます。
 
 ```js
 module.exports = {
