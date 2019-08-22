@@ -28,7 +28,7 @@ env:
 
 ## JSON ファイルの修正
 
-`test/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` を上記で作成したサブアプリの ID に置き換えます。
+`test/kintone-settings/development/jinzo-ningen-test/app_form_fields.json` の下記の項目で、`your_sub_app_id` を上記で作成したサブアプリの ID に置き換えます。
 
 ```
 "ルックアップ": {
@@ -39,7 +39,7 @@ env:
   "required": false,
   "lookup": {
     "relatedApp": {
-      "app": "your_sub_app_id", 
+      "app": "your_sub_app_id",
       "code": ""
     },
 ```
@@ -59,9 +59,10 @@ npx ginue deploy
 ```
 
 プロンプトからの問い合わせの例：
+
 ```
 ? [push] Are you sure? (Y/n)
-? Add field "文字列__1行_" to development.jinzo-ningen-test? (Y/n) 
+? Add field "文字列__1行_" to development.jinzo-ningen-test? (Y/n)
 ```
 
 ## テストの実行
