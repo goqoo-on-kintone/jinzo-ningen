@@ -5,4 +5,5 @@ env:
     username: your_username
     password: your_password
     app:
-      jinzo-ningen-test: your_app_id
+      jinzo-ningen-test: your_main_app_id
+      jinzo-ningen-test-sub: your_sub_app_id
