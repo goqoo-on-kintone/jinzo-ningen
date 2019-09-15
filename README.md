@@ -36,7 +36,7 @@ module.exports = {
 - [フィールドからの値の取得（新規作成、編集画面）](./doc/reference.md#フィールドからの値の取得新規作成編集画面)
 - [グループの操作（詳細画面）](./doc/reference.md#グループの操作詳細画面)
 - [フィールドからの値の取得（詳細画面）](./doc/reference.md#フィールドからの値の取得詳細画面)
-- [レコード情報](./doc/reference.md#レコード情報)
+- [レコード取得](./doc/reference.md#レコード取得)
 
 ## TIPS
 
