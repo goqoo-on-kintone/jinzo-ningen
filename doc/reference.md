@@ -353,19 +353,21 @@ gotoIndexPage(<domain>, <appId>, { queryParams: { view: 20 } });
 
 ## レコード取得
 
-### getRecord(id)
+### getRecord({ appId, recordId })
 
 レコードを1件取得します。
 引数を省略した場合、現在の画面のレコード情報を取得します。
 
-- `id` `<number>` レコード番号（省略可能）
+- `appId` `<number>` アプリID（省略可能）
+- `recordId` `<number>` レコード番号（省略可能）
 - returns: `<Object>` レコードオブジェクトを返します。
 
-### getRecords(query)
+### getRecords({ appId, query })
 
 レコードを複数件取得します。
 引数を省略した場合、現在の画面に表示されているレコード一覧情報を取得します。
 
+- `appId` `<number>` アプリID（省略可能）
 - `query` `<string>` クエリ文字列（省略可能）
 - returns: `<Array<Object>>` レコードオブジェクト配列を返します。
 
