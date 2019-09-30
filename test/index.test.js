@@ -232,7 +232,7 @@ describe('jinzo-ningen-test', () => {
     })
   })
 
-  describe('rest-api', () => {
+  describe('data-utils', () => {
     beforeAll(async () => {
       await lib.upload({ domain, appId }, 'test/csv/test-data.csv')
     })
@@ -250,7 +250,7 @@ describe('jinzo-ningen-test', () => {
 
       it('0件取得（クエリを指定', async () => {
         await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
-        const records = await lib.getRecords('レコード番号 = 0')
+        const records = await lib.getRecords({ query: 'レコード番号 = 0' })
         expect(records.length).toBe(0)
       })
     })
@@ -270,7 +270,7 @@ describe('jinzo-ningen-test', () => {
       })
 
       it('存在しないレコードはエラー', async () => {
-        await expect(lib.getRecord(Number.MAX_SAFE_INTEGER)).rejects.toThrow()
+        await expect(lib.getRecord({ recordId: Number.MAX_SAFE_INTEGER })).rejects.toThrow()
       })
     })
   })
