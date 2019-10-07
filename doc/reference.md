@@ -351,6 +351,26 @@ gotoIndexPage(<domain>, <appId>, { queryParams: { view: 20 } });
 - `fieldCode` `<string>` フィールドコード
 - returns: `<Promise<boolean>>` 指定したグループが閉じているかどうかを返します。
 
+## レコード取得
+
+### getRecord({ appId, recordId })
+
+レコードを1件取得します。
+引数を省略した場合、現在の画面のレコード情報を取得します。
+
+- `appId` `<number>` アプリID（省略可能）
+- `recordId` `<number>` レコード番号（省略可能）
+- returns: `<Object>` レコードオブジェクトを返します。
+
+### getRecords({ appId, query })
+
+レコードを複数件取得します。
+引数を省略した場合、現在の画面に表示されているレコード一覧情報を取得します。
+
+- `appId` `<number>` アプリID（省略可能）
+- `query` `<string>` クエリ文字列（省略可能）
+- returns: `<Array<Object>>` レコードオブジェクト配列を返します。
+
 ## 開発用
 
 ### setConsole()

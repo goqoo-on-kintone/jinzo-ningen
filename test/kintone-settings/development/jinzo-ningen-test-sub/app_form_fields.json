@@ -40,7 +40,7 @@
       "maxLength": "",
       "expression": "",
       "hideExpression": false,
-      "unique": false,
+      "unique": true,
       "defaultValue": ""
     },
     "ステータス": {
@@ -58,7 +58,7 @@
       "minValue": "",
       "maxValue": "",
       "digit": false,
-      "unique": false,
+      "unique": true,
       "defaultValue": "",
       "displayScale": "",
       "unit": "",

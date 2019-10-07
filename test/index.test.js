@@ -231,4 +231,123 @@ describe('jinzo-ningen-test', () => {
       expect(detailStatusText).toEqual('処理中')
     })
   })
+
+  describe('data-utils', () => {
+    beforeAll(async () => {
+      await lib.upload({ domain, appId }, 'test/csv/test-data.csv')
+    })
+
+    afterAll(async () => {
+      await lib.delete({ domain, appId })
+    })
+
+    describe('getRecords', () => {
+      it('1件取得できる', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const records = await lib.getRecords()
+        expect(records.length).toBe(1)
+      })
+
+      it('0件取得（クエリを指定', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const records = await lib.getRecords({ query: 'レコード番号 = 0' })
+        expect(records.length).toBe(0)
+      })
+    })
+
+    describe('getRecord', () => {
+      it('レコード内容を取得できる', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const recordId = await page.evaluate(async appId => {
+          return (await kintone.api('/k/v1/records', 'GET', { app: appId })).records[0].$id.value
+        }, appId)
+        await page.goto(`https://${domain}/k/${appId}/show#record=${recordId}`, {
+          waitUntil: 'networkidle2',
+        })
+
+        const record = await lib.getRecord()
+        expect(record['文字列__1行_'].value).toEqual('ゴーシュもセロの安心あとげで子ですわり楽隊たまし。')
+      })
+
+      it('存在しないレコードはエラー', async () => {
+        await expect(lib.getRecord({ recordId: Number.MAX_SAFE_INTEGER })).rejects.toThrow()
+      })
+    })
+
+    describe('updateStatus', () => {
+      it('ステータスを更新できる', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const recordId = await page.evaluate(async appId => {
+          return (await kintone.api('/k/v1/records', 'GET', { app: appId })).records[0].$id.value
+        }, appId)
+        await lib.updateStatus({ appId, recordId, action: '処理開始' })
+        const record = await lib.getRecord({ app: appId, recordId })
+        expect(record['ステータス'].value === '処理中')
+      })
+    })
+
+    describe('postRecord', () => {
+      it('レコードが登録できる', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const record = {
+          文字列__1行_: {
+            type: 'SINGLE_LINE_TEXT',
+            value: 'レコード登録テスト',
+          },
+        }
+        const recordId = await lib.postRecord({ appId, record })
+        const postedRecord = await lib.getRecord({ appId, recordId })
+        expect(record['文字列__1行_'].value).toEqual(postedRecord['文字列__1行_'].value)
+      })
+    })
+
+    describe('postRecords', () => {
+      it('複数レコードが登録できる', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const records = [
+          {
+            文字列__1行_: {
+              type: 'SINGLE_LINE_TEXT',
+              value: 'レコード登録テスト1',
+            },
+          },
+          {
+            文字列__1行_: {
+              type: 'SINGLE_LINE_TEXT',
+              value: 'レコード登録テスト2',
+            },
+          },
+        ]
+        const recordIds = await lib.postRecords({ appId, records })
+        const postedRecord1 = await lib.getRecord({ appId, recordId: recordIds[0] })
+        const postedRecord2 = await lib.getRecord({ appId, recordId: recordIds[1] })
+        expect(records[0]['文字列__1行_'].value).toEqual(postedRecord1['文字列__1行_'].value)
+        expect(records[1]['文字列__1行_'].value).toEqual(postedRecord2['文字列__1行_'].value)
+      })
+    })
+
+    describe('deleteRecords', () => {
+      it('複数レコードが削除できる', async () => {
+        await page.goto(`https://${domain}/k/${appId}/?view=20`, { waitUntil: 'networkidle2' })
+        const records = [
+          {
+            文字列__1行_: {
+              type: 'SINGLE_LINE_TEXT',
+              value: 'レコード登録テスト1',
+            },
+          },
+          {
+            文字列__1行_: {
+              type: 'SINGLE_LINE_TEXT',
+              value: 'レコード登録テスト2',
+            },
+          },
+        ]
+        const recordIds = await lib.postRecords({ appId, records })
+        await lib.deleteRecords({ appId, recordIds })
+        await expect(lib.getRecord({ appId, recordId: recordIds[0] })).rejects.toThrow()
+        await expect(lib.getRecord({ appId, recordId: recordIds[1] })).rejects.toThrow()
+      })
+    })
+  })
 })
