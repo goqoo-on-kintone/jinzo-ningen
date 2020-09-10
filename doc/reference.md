@@ -130,7 +130,7 @@ gotoIndexPage(<domain>, <appId>, { queryParams: { view: 20 } });
 - `item` `<string>` 項目
 - returns: `<Promise>` 入力が成功した場合に resolve されます。
 
-### checkCheckbox(fieldCode, itemCheckMap)
+### checkCheckBox(fieldCode, itemCheckMap)
 
 指定したフィールドコードのチェックボックスについて、項目をチェックまたはチェックを外します。
 
