@@ -46,7 +46,8 @@ describe('jinzo-ningen-test', () => {
     it('新規画面から詳細画面に遷移すること', async () => {
       await page.goto(`https://${domain}/k/${appId}/edit`, { waitUntil: 'networkidle2' })
       await lib.pressSaveAndWaitForDetailScreen()
-      expect(page.url()).toEqual(`https://${domain}/k/${appId}/show`)
+      const nextRecordId = Number(recordId) + 1
+      expect(page.url()).toEqual(`https://${domain}/k/${appId}/show#record=${nextRecordId}`)
     })
 
     it('詳細画面から編集画面に遷移すること', async () => {
