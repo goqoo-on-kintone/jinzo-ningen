@@ -1,5 +1,5 @@
 const lib = require('../lib')
-const { app, domain, username, password } = require('./config')
+const { app, domain, username, password, basic } = require('./config')
 
 jest.setTimeout(60 * 1000)
 /* eslint-disable no-console */
@@ -9,7 +9,14 @@ describe('jinzo-ningen-test', () => {
   beforeAll(async () => {
     await page.setViewport({ width: 1920, height: 980 })
     lib.setConsole()
-    await lib.login({ domain, username, password })
+    const [basicAuthUserName, basicAuthPassword] = (basic || '').split(':')
+    await lib.login({
+      domain,
+      userName: username,
+      password,
+      basicAuthUserName,
+      basicAuthPassword,
+    })
   })
 
   const text1 = 'ゴーシュもセロの安心あとげで子ですわり楽隊たまし。'
