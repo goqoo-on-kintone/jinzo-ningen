@@ -37,6 +37,6 @@
   "dependencies": {
     "date-fns": "^2.27.0",
     "date-fns-timezone": "^0.1.4",
-    "qs": "^6.10.2"
+    "qs": "^6.10.3"
   }
 }
